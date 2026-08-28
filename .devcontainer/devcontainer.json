@@ -1,0 +1,6 @@
+{
+    "name": "Registro de Horas",
+    "build": {
+        "dockerfile": "../Dockerfile"
+    }
+}

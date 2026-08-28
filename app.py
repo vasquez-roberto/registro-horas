@@ -3,16 +3,16 @@ import os
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-CSV_FILE = "registros.csv"
-TIMEZONE = "America/Monterrey"
+CSV_FILE = "registros.csv" # nombre del archivo
+TIMEZONE = "America/Monterrey" # zona horaria
 
 
 def registrar_hora():
-    ahora = datetime.now(ZoneInfo(TIMEZONE))
+    ahora = datetime.now(ZoneInfo(TIMEZONE)) # obtiene la fecha y hora actual
 
     archivo_existe = os.path.exists(CSV_FILE)
 
-    with open(CSV_FILE, "a", newline="", encoding="utf-8") as archivo:
+    with open(CSV_FILE, "a", newline="", encoding="utf-8") as archivo: # abre el CSV
         writer = csv.writer(archivo)
 
         if not archivo_existe:
@@ -32,3 +32,10 @@ def registrar_hora():
 
 if __name__ == "__main__":
     registrar_hora()
+    
+# docker run --rm -it -v "${PWD}:/app" registro-horas
+# git status
+# git add registros.csv
+# git status
+# git commit -m "Agregar nuevo registro"
+# git push
